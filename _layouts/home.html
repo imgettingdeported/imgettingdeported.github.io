@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,400,900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700,700italic,400italic,300italic,900,900italic' rel='stylesheet' type='text/css'>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/main.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body>
+      <div id="logo">
+        <span>E</span>
+      </div>
+      <div id="container">
+        <header id="header">
+        <!-- http://lorempixel.com/1600/900/nature/ -->
+          <div class="bg-image animate"><img src="img/baby.jpg"></div>
+          
+          <hgroup class="table">
+            <div class="cell">
+              <h1 class="animate">I'm getting<span class="thin">deported.</span></h1>
+              <p>I've got 60 days to figure out how to stay in the United States.  Stay tuned to see what happens...</p>
+            </div>
+          </hgroup>
+
+          <nav class="bottom">
+            <menu>
+              <li><a href="#">Writing</a></li>
+              <li><a href="#">Work</a></li>
+              <li><a href="#">Contact</a></li>
+            </menu>
+          </nav>
+          
+        </header>
+
+
+        <section class="body">
+          <div class="wrapper">
+            {{ content }}
+          </div>
+        </section>
+          <nav>
+            <menu>
+              <li><a href="#">Writing</a></li>
+              <li><a href="#">Work</a></li>
+              <li><a href="#">Contact</a></li>
+            </menu>
+          </nav>
+      </div>
+    </body>
+    <script src-"bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" charset="UTF-8">
+    $(document).ready(function() {
+        $(".animate").addClass("active");
+    });
+</script>

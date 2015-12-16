@@ -1,0 +1,321 @@
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "compass";
+@import "compass/reset";
+
+$green: #75F0AB;
+$blue: #02A4FF;
+$bgColor: #fff;
+$linkColor: $blue;
+$bodyColor: #001C1F;
+
+$primaryFont: 'Lato';
+$bodyFont: 'Merriweather';
+
+$small: 380px;
+$medium: 640px;
+$large: 760px;
+
+$maxWidth: 760px;
+
+
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: $bodyFont;
+	// font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $primaryFont;
+	font-weight: 900;
+	margin-bottom: 1em;
+}
+
+h1 {}
+h2 { font-size: 2em; }
+
+p {
+	font-size: 1em;
+	margin-bottom: 1.6em;
+}
+
+a {
+	text-decoration: none;
+	color: $linkColor;
+}
+
+.thin { font-weight: 100; }
+
+#logo {
+	display: none;
+	position: fixed;
+	z-index: 10;
+	top: .5em;
+	left: .5em;
+	background: $blue;
+	width: 1.8em;
+	height: 1.8em;
+	line-height: 1.8em;
+	font-size: 1.8em;
+	border-radius: 50%;
+	
+	text-align: center;
+	span {
+		color: #fff;
+		font-family: 'Lato';
+		font-weight: 900;
+	}
+}
+
+nav {
+	display: none;
+	width: 100%;
+	&.bottom {
+		position: absolute;
+		bottom: 0;
+	}
+	
+	menu {
+		margin: 0 auto;
+		padding: 0 1em;
+		width: 100%;
+		text-align: center;
+
+		@media (min-width: $small) {
+			font-size: 1.2em;
+			text-align: center;
+		}
+	}
+	li {
+		display: inline-block;
+		
+		a {
+			font-family: $primaryFont;
+			font-size: .8em;
+			display: block;
+			padding: 1.8em 1em;
+			width: 100%;
+			font-size: .8em;
+			@include transition(all .2s ease-in);
+			
+			&:hover {
+				// border: 1px solid rgba(255,255,255,1);
+				// color: rgba(255,255,255,1);
+			}
+		}
+	}
+
+}
+
+@include keyframes (fadeInUp) {
+	0% {
+		opacity: 0;
+		@include transform(translateY(10vh));
+	}
+	100% {
+		opacity: 1;
+		@include transform(translateY(0));
+	}
+}
+
+@include keyframes (scaleBg) {
+	0% {
+		@include transform(scale(1.2));
+	}
+	50% {
+		@include transform(scale(1));
+	}
+	100% {
+		@include transform(scale(1.2));
+	}
+}
+
+@include keyframes(slideBg) {
+	0% {
+		background-position: 0vw center;
+	}
+	100% {
+		background-position: -200vw center;
+	}
+}
+
+@media (min-width: 786px) {
+	@include keyframes(slideBg) {
+		0% {
+			background-position: 0vw center;
+		}
+		100% {
+			background-position: -150vw center;
+		}
+	}
+}
+
+@media (min-width: 1186px) {
+	@include keyframes(slideBg) {
+		0% {
+			background-position: 0vw center;
+		}
+		100% {
+			background-position: -100vw center;
+		}
+	}
+}
+
+.bg-image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: 200vw auto;
+	background-position: center;
+	background-image: url('../img/baby.jpg');
+	opacity: .4;
+
+	@media (min-width: 786px) {
+		background-size: 150vw auto;
+	}
+
+	@media (min-width: 1186px) {
+		background-size: 100vw auto;
+	}
+
+	&.animate.active {
+		@include animation(scaleBg 60s ease-in-out infinite, slideBg 60s linear infinite);
+		// @include animation-name(scaleBg);
+	 //  	@include animation-duration(60s);
+	 //  	@include animation-timing-function(linear);
+		// @include animation-iteration-count(infinite);
+	}
+	
+	img {
+		display: none;
+		width: 100%;
+		margin: -30px;
+		@include filter(blur(30px));
+		// opacity: .7;
+
+	}
+}
+
+
+section {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	// min-height: 100vh;
+	background-color: $bgColor;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: $maxWidth;
+	margin: 0 auto;
+	padding: 4em 1em 2em;
+
+	&.center {
+		padding: 0;
+		width: auto;
+		
+	}
+}
+
+.table {
+	min-height: 300px;
+	position: relative;
+	display: table;
+	.cell {
+		width: 100%;
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}
+}
+
+
+#header {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	min-height: 300px;
+
+	// @include linear-gradient(top, #ff0022 0%, #00ff2f 100%);
+	background: $blue;
+
+	@media (min-width: $medium) {
+		height: 100vh;
+	}
+
+	hgroup {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		color: $bodyColor;
+		color: #fff;
+
+		h1 {
+			font-weight: 900;
+			line-height: 1.6;
+			font-size: 2em;
+			margin: 0;
+			opacity: 0;
+			&.animate.active {
+				@include animation(fadeInUp .5s ease-in forwards);
+			}
+
+		}
+
+		p {
+			font-family: $primaryFont;
+			font-size: 1em;
+			line-height: 1;
+		}
+
+		a {
+			color: $bodyColor;
+		}
+
+		@media (min-width: $small) {
+			h1 { font-size: 3em; }
+			p { font-size: 1em; }
+		}
+		@media (min-width: $medium) {
+			h1 { font-size: 5em; }
+			p { font-size: 1.3em; }
+		}
+		@media (min-width: $large) {
+			h1 { font-size: 8em; }
+			p { font-size: 1.4em; }
+		}
+	}
+	nav {
+		a { color: #fff; opacity: .5; }
+		a:hover { opacity: 1; }
+	}
+}
+
+
+section.body {
+	
+	font-size: 1em;
+	color: $bodyColor;
+
+	p {
+		line-height: 1.5;
+	}
+	
+	// @media (min-width: $small) {
+	// 	font-size: 1.1em;
+	// }
+	@media (min-width: $medium) {
+		font-size: 1.15em;
+		p {line-height: 1.6; }
+	}
+	@media (min-width: $large) {
+		font-size: 1.3em;
+	}
+}

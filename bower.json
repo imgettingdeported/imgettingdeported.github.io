@@ -1,0 +1,25 @@
+{
+  "name": "etienne",
+  "version": "0.0.0",
+  "authors": [
+    "hbharding <hbharding@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "d3": "~3.4.3"
+  },
+  "devDependencies": {
+    "normalize-scss": "~3.0.0",
+    "bourbon": "~3.1.8"
+  }
+}
